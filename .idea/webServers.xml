@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5060ab3a-dbf3-4e14-bb3a-58c1b243237e" name="192.168.2.165">
+        <fileTransfer rootFolder="/home/wps" accessType="SFTP" host="192.168.2.165" port="22" sshConfigId="aa34c1f2-9e80-4b2f-bbf2-38480897ecdc" sshConfig="wps@192.168.2.165:22 password">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="39dd1c69-a7dd-466a-bedc-bf94b56f8cff" name="192.168.2.55">
+        <fileTransfer accessType="SFTP" host="192.168.2.55" port="22" sshConfigId="36aa51a2-30bb-4427-9428-b90e6b67833f" sshConfig="wps@192.168.2.55:22 password">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

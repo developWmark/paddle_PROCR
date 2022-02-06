@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="192.168.2.165" id="aa34c1f2-9e80-4b2f-bbf2-38480897ecdc" port="22" nameFormat="DESCRIPTIVE" username="wps" />
+    </configs>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+opencv-python
+six
+yacs
+imgaug
+lmdb
+
