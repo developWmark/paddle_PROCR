@@ -15,7 +15,7 @@
     链接: https://pan.baidu.com/s/1WlyW-csVjV3VjvjLUygOTg 提取码: q0bw 
  
     将百度网盘的文件夹放在项目根目录下，为了提高训练效果，采用的lmdb数据存储格式。
-    ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/dir.png)
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/show1.png)
      
 ### 训练：
        1.将数据集放入dataset文件夹下（数据集来自https://github.com/FangShancheng/ABINet，在readme.md下载mj+st数据集，
@@ -30,10 +30,13 @@
         1.网盘中的dataset内有测试数据集
         2.在config.py 文件中修改对应的位置 如：_C.LMDB.testDir="./dataset/evaluation/SVT"
         3.在config.py 文件中修改权重加载路径 _C.LMDB.testResume='./output/resume2/Epoch-8-Loss-0.18709387933158853'
-        ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/dir2.png)
-        4.python ./test/py
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/show2.png)
+        
+        4.python ./test.py
         
 ### 测试结果
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/result.png)
+         
        
        
     
