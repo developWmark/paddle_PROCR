@@ -10,6 +10,8 @@
    
    ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/framework.png)
  
+## 复现结果 ：
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/result.png)
  
 ###  权重和测试数据集：
     链接: https://pan.baidu.com/s/1WlyW-csVjV3VjvjLUygOTg 提取码: q0bw 
@@ -20,14 +22,23 @@
 ### 训练：
        1.将数据集放入dataset文件夹下（数据集来自https://github.com/FangShancheng/ABINet，在readme.md下载mj+st数据集，
        已上传至aistudio：https://aistudio.baidu.com/aistudio/datasetdetail/120703）
+       
+       2.在项目根目录下创建dataset，并且将数据集解压到dataset下
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/Screenshot_select-area_20220207160211.png)
+   
+   注意MJ数据集中包含train，valid,test.训练文件时，mj文件夹下只有train下面的文件，valid和test文件移出
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/Screenshot_select-area_20220207160303.png)
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/Screenshot_select-area_20220207160220.png)
+   
          
        在config.py文件下修改对应的位置 如：_C.LMDB.trainData_dir = "./dataset/lmdb/training"
        
-       2.pip install -r ./requirement.txt 
-       3.python ./main_single_gpu.py
+       2.pip install -r ./requirement.txt (依赖基于aistudio环境)
+       
+       3.python ./main_single_gpu.py （单卡大概需要6天）
        
  ### 测试 ：
-        1.网盘中的dataset内有测试数据集
+        1.网盘中的dataset内有测试数据集 ,测试数据集来自：https://aistudio.baidu.com/aistudio/datasetdetail/114635
         2.在config.py 文件中修改对应的位置 如：_C.LMDB.testDir="./dataset/evaluation/SVT"
         3.在config.py 文件中修改权重加载路径 _C.LMDB.testResume='./output/resume2/Epoch-8-Loss-0.18709387933158853'
    ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/show2.png)
