@@ -47,7 +47,6 @@ def train(dataloader,
           epoch,
           total_batch,
           report_Freq=100,
-          accum_iter=1,
           displayInterval=10,
           strconvert=None):
     model.train()
@@ -59,9 +58,6 @@ def train(dataloader,
         logits = model(imgs)  # [b,25,39]
         loss = criterion(paddle.reshape(logits, shape=[-1, logits.shape[-1]]), paddle.reshape(targets, shape=[-1]))
         loss.backward()
-        # default 'reduction' param in nn.CrossEntropyLoss is set to 'mean'
-        #loss =  loss / accum_iter
-
         optimizer.step()
         optimizer.clear_grad()
 
@@ -131,6 +127,7 @@ def main_worker(*args):
     with open(configs.DATA.alphabet) as f:
         alphabet = f.readline().strip()
     strconvert = strLabelConverter(alphabet)
+     
 
     for epoch in range(last_epoch + 1, configs.TRAIN.n_epochs + 1):
         # train
@@ -138,7 +135,6 @@ def main_worker(*args):
         train_loss, train_time = train(dataloader=dataloader_train, model=model, criterion=criterion,
                                        optimizer=optimizer,
                                        epoch=epoch, total_batch=total_batch_train, report_Freq=configs.report_Freq,
-                                       accum_iter=configs.TRAIN.accum_iter,
                                        displayInterval=configs.TRAIN.displayInterval, strconvert=strconvert)
 
         scheduler.step()
