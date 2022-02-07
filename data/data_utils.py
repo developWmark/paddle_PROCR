@@ -1,5 +1,4 @@
 import random
-
 import PIL
 import cv2
 import imgaug.augmenters as iaa
@@ -16,9 +15,9 @@ random.seed(1)
 class Augmenter(object):
     def __init__(self, p=0.3,
                  mul_bright=(0.7, 1.3),
-                 rot_angle=(-15,15), perspective=(0, 0.06), # rotation and perspective
+                 rot_angle=(-15, 15), perspective=(0, 0.06),  # rotation and perspective
                  resize=(0.5, 1.0), compression=(50, 75), th=16,  # decrease image quality
-                 motionblur=(3, 7), gaussblur=(0., 2.0), p_motion=0.5, # blur
+                 motionblur=(3, 7), gaussblur=(0., 2.0), p_motion=0.5,  # blur
                  p_curve=0.1):
 
         self.aug_bright = iaa.MultiplyBrightness(mul=mul_bright)
@@ -28,7 +27,7 @@ class Augmenter(object):
         self.aug_dq = iaa.Sequential([
             iaa.Resize(resize),
             iaa.JpegCompression(compression)
-            ])
+        ])
 
         self.aug_motion = iaa.MotionBlur(k=motionblur)
         self.aug_gauss = iaa.GaussianBlur(sigma=gaussblur)
@@ -68,7 +67,8 @@ def curve(img, r=1., direction=0):
     # direction = 0: middle up edge down; 1: middle down edge up
 
     h, w, c = img.shape
-    background = (img[0, 0].astype(np.int32) + img[0, w-1].astype(np.int32) + img[h-1, 0].astype(np.int32) + img[h-1, w-1].astype(np.int32)) / 4
+    background = (img[0, 0].astype(np.int32) + img[0, w - 1].astype(np.int32) + img[h - 1, 0].astype(np.int32) + img[
+        h - 1, w - 1].astype(np.int32)) / 4
     background = background.astype(np.uint8)
     dst = np.tile(background, (int(h * (1 + r)), w, 1))
     shift = int(h * r / 2 - 1e-9)  # avoid h*r/2 is int
@@ -97,7 +97,6 @@ def rand_curve(img, text_len, min_text_len=4):
     r = random.uniform(0.2, 1.2)
     dir = 0 if random.random() < 0.5 else 1
     return curve(img, r, dir)
-
 
 
 class ToPILImage(BaseTransform):
@@ -209,3 +208,4 @@ if __name__ == '__main__':
     f, (ax1, ax2) = plt.subplots(2, 1)
     ax1.imshow(im)
     ax2.imshow(im_aug)
+
