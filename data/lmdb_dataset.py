@@ -29,7 +29,8 @@ paddle.seed(1)
 np.random.seed(1)
 random.seed(1)
 
-#train dataset
+
+
 class LMDBDataSet(Dataset):
     def __init__(self, configs):
         super(LMDBDataSet, self).__init__()
@@ -140,7 +141,7 @@ class LMDBDataSet(Dataset):
 def get_train_transforms(configs):
     transforms_train = transforms.Compose([
         ToPILImage(),
-        #transforms.ColorJitter(0.3, 0.3, 0.3, 0.3),  # HWC
+        transforms.ColorJitter(0.3, 0.3, 0.3, 0.3),  # HWC
         transforms.Resize((configs.LMDB.imgH, configs.LMDB.imgW)),  # HWC
         transforms.Transpose(order=(2, 0, 1)),  # CHW
         transforms.Normalize(mean=[0, 0, 0], std=[255.0, 255.0, 255.0]),
