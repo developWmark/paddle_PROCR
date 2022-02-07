@@ -132,7 +132,7 @@ class LMDBTestDataSet(Dataset):
 def get_test_transforms(configs):
     transforms_test = transforms.Compose([
         ToPILImage(),
-        transforms.Resize((configs.LMDB.imgH, configs.LMDB.imgW)),  # HWC
+        transforms.Resize((configs.LMDB.imgH,configs.LMDB.imgW)),  # HWC
         transforms.Transpose(order=(2, 0, 1)),  # CHW
         transforms.Normalize(mean=[0, 0, 0], std=[255.0, 255.0, 255.0]),
         transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])])
