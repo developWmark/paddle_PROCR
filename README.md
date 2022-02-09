@@ -35,13 +35,22 @@
        4.python ./main_single_gpu.py （单卡大概需要6天）
        
        
-###  5.2 测试 ：
+###  5.2 测试（lmdb） ：
+
         1.网盘中的dataset内有测试数据集 ,测试数据集来自：https://aistudio.baidu.com/aistudio/datasetdetail/114635
         2.在config.py 文件中修改对应的位置 如：_C.LMDB.testDir="./dataset/evaluation/SVT"
         3.在config.py 文件中修改权重加载路径 _C.LMDB.testResume='./output/resume2/Epoch-8-Loss-0.18709387933158853'     
         4.python ./test.py
 
-    
+###  5.3 测试（single img）：
+         1. python ./testSingle.py --filepath='samples/001.jpg'
+         预测图片：
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/001.jpg)
+         
+         预测结果：
+   ![image](https://github.com/developWmark/paddle_PROCR/blob/master/samples/Screenshot_select-area_20220209210840.png)
+         
+
 
          
        
